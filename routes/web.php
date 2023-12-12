@@ -26,13 +26,17 @@ Route::get("/", function () {
 
 Route::get("/categories", [CategoriesController::class, "index"])->name("categories");
 
-Route::group(['prefix' => ''], static function () {
-    Route::get('/news', [NewsController::class, 'index'])
-        ->name('news');
-    Route::get('/news/{id}/show', [NewsController::class, 'show'])
-        ->where('id', '\d+')
-        ->name('news.show');
-});
+Route::get("/categories/{id_category}/news", [NewsController::class, "index"])->name("news.index");
+
+Route::get("/categories/{id_category}/news/{id}", [NewsController::class, "show"])->name("news.show");
+
+//Route::group(['prefix' => ''], static function () {
+//Route::get('/news', [NewsController::class, 'index'])
+//    ->name('news');
+//Route::get('/news/{id}/show', [NewsController::class, 'show'])
+//    ->where('id', '\d+')
+//   ->name('news.show');
+//});
 
 
 

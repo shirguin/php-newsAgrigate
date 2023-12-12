@@ -1,6 +1,7 @@
 <?php foreach ($categories as $category): ?>
     <div>
-        <a href="">
+        <a href="<?= route('news.index', ['id_category' => $category['id']]) ?>">
+
             <h2>
                 <?= $category['title'] ?>
             </h2>
